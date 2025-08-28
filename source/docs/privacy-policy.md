@@ -5,7 +5,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-# 隐私协议
+# 京墨文库APP用户隐私协议
 
 ## 用户信息收集
 
