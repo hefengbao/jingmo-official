@@ -5,7 +5,7 @@ use Illuminate\Support\Str;
 return [
     'baseUrl' => '',
     'production' => false,
-    'siteName' => '京墨',
+    'siteName' => '京墨文库',
     'siteDescription' => '',
 
     // Algolia DocSearch credentials

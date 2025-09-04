@@ -31,7 +31,6 @@
             <!-- Insert analytics code here -->
         @endif
 
-        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
 
         @if ($page->docsearchApiKey && $page->docsearchIndexName)
@@ -71,7 +70,7 @@
         <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
             <ul class="flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
-                    &copy; <a href="./" title="Tighten website">京墨</a> {{ date('Y') }}
+                    &copy; <a href="./" title="京墨文库">京墨文库</a> {{ date('Y') }} <a href="./docs/user-agreement/" title="用户协议">用户协议</a>
                 </li>
             </ul>
         </footer>

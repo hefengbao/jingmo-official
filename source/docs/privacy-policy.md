@@ -5,7 +5,9 @@ extends: _layouts.documentation
 section: content
 ---
 
-# 京墨文库APP用户隐私协议
+# 隐私协议
+
+京墨文库 APP 是由贺丰宝（个人开发者）开发并运营的古诗文、词语、成语、句子等的阅读学习类 APP，为了更好的为你提供服务，请仔细阅读如下内容。
 
 ## 用户信息收集
 
