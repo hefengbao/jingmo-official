@@ -1,0 +1,10 @@
+{
+  "name": "京墨",
+  "description": null,
+  "icon": null,
+  "needLogin": true,
+  "proxyConfigs": null,
+  "pageArgConfigs": null,
+  "dataSourcePlugins": null,
+  "dataSourceWorkflows": null
+}

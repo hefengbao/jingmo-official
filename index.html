@@ -1,108 +1,290 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="">
+<!doctype html>
+<html lang="zh-CN">
 
-        <meta property="og:site_name" content="京墨文库"/>
-        <meta property="og:title" content="京墨文库"/>
-        <meta property="og:description" content=""/>
-        <meta property="og:url" content="/"/>
-        <meta property="og:image" content="/assets/img/logo.png"/>
-        <meta property="og:type" content="website"/>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/public/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>京墨 - 开源的中华文化阅读APP</title>
+  <script src="/public/tailwindcss.js"></script>
+</head>
 
-        <meta name="twitter:image:alt" content="京墨文库">
-        <meta name="twitter:card" content="summary_large_image">
+<body>
+  <!-- 主要内容区域 -->
+  <div class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
+    <!-- 导航栏 -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-3">
+            <img src="/public/logo.png" alt="京墨" class="w-10 h-10 rounded-lg shadow-md" />
+            <span class="text-2xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">京墨</span>
+          </div>
+          <nav class="hidden md:flex space-x-10">
+            <a href="#features" class="text-gray-600 hover:text-slate-800 transition-colors font-medium">功能展示</a>
+            <a href="#data" class="text-gray-600 hover:text-slate-800 transition-colors font-medium">内容数据</a>
+            <a href="#contact" class="text-gray-600 hover:text-slate-800 transition-colors font-medium">联系我们</a>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-        
-        <title>京墨文库</title>
+    <!-- 主要内容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Hero 区域 -->
+      <section class="mb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- 左侧文字内容 -->
+          <div class="text-center lg:text-left">
+            <div class="mb-8">
+              <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-4">
+                <span class="block">京墨</span>
+                <span class="text-3xl sm:text-4xl lg:text-5xl text-slate-600 mt-2">开源的中华文化阅读APP</span>
+              </h1>
+            </div>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              献给喜欢中华文字、文学、文化的人。
+            </p>
+            <div class="flex justify-center lg:justify-start">
+              <a href="https://gitee.com/hefengbao/jingmo/releases/download/v1.15.3/jingmo_v1.15.3_release.apk"
+                 download="jingmo_v1.15.3_release.apk"
+                 class="px-10 py-4 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-all font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-transform inline-block">
+                立即下载
+              </a>
+            </div>
+          </div>
 
-        <link rel="home" href="">
-        <link rel="icon" href="/favicon.ico">
+          <!-- 右侧产品图片 -->
+          <div class="flex justify-center">
+            <div class="w-3/4 rounded-2xl">
+              <img src="/public/app.png" alt="京墨应用展示" class="w-full h-full object-cover rounded-2xl" />
+            </div>
+          </div>
+        </div>
+      </section>
 
-        
-                    <!-- Insert analytics code here -->
-        
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=aa2ebddf1fe6a4cbc793c54497bd5527">
+      <!-- 功能展示 -->
+      <section id="features" class="mb-20">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">功能展示</h2>
+        </div>
 
-            </head>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 功能图片 1 - 经典诗文 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+            <div class="aspect-[9/16] relative overflow-hidden">
+              <img src="/publicfeature-1.png" alt="经典诗文功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
+                <h3 class="text-lg font-bold text-white mb-2">经典诗文</h3>
+                <p class="text-sm text-white/90">收录古今经典诗文作品</p>
+              </div>
+            </div>
+          </div>
 
-    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-800 leading-normal font-sans">
-        <header class="flex items-center shadow bg-white border-b h-24 mb-8 py-4" role="banner">
-            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
-                <div class="flex items-center">
-                    <a href="/" title="京墨文库 home" class="inline-flex items-center">
-                        <img class="h-8 md:h-10 mr-3" src="/assets/img/logo.svg" alt="京墨文库 logo" />
+          <!-- 功能图片 2 - 诗文名句 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+            <div class="aspect-[9/16] relative overflow-hidden">
+              <img src="/publicfeature-2.png" alt="诗文名句功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
+                <h3 class="text-lg font-bold text-white mb-2">诗文名句</h3>
+                <p class="text-sm text-white/90">精选优美诗词名句</p>
+              </div>
+            </div>
+          </div>
 
-                        <h1 class="text-lg md:text-2xl text-blue-900 font-semibold hover:text-blue-600 my-0 pr-4">京墨文库</h1>
-                    </a>
+          <!-- 功能图片 3 - 成语 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+            <div class="aspect-[9/16] relative overflow-hidden">
+              <img src="/publicfeature-3.png" alt="成语功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
+                <h3 class="text-lg font-bold text-white mb-2">成语</h3>
+                <p class="text-sm text-white/90">中华成语大词典</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 功能图片 4 - 句子 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+            <div class="aspect-[9/16] relative overflow-hidden">
+              <img src="/publicfeature-4.png" alt="句子功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
+                <h3 class="text-lg font-bold text-white mb-2">句子</h3>
+                <p class="text-sm text-white/90">优美句子精选集</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 内容数据 -->
+      <section id="data" class="mb-20">
+        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-12 text-white">
+          <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">内容数据</h2>
+            <p class="text-xl leading-relaxed mb-8 text-slate-200">
+              数据来自网络，或有内容错误，欢迎纠错。
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">955</div>
+                <div class="text-slate-300">经典诗文</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">160万+</div>
+                <div class="text-slate-300">诗文</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">10000</div>
+                <div class="text-slate-300">诗文名句</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">126830</div>
+                <div class="text-slate-300">人物</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">24228</div>
+                <div class="text-slate-300">汉字</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">422958</div>
+                <div class="text-slate-300">词语</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">49639</div>
+                <div class="text-slate-300">成语</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">14026</div>
+                <div class="text-slate-300">歇后语</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">964</div>
+                <div class="text-slate-300">谚语</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">42446</div>
+                <div class="text-slate-300">谜语</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">45</div>
+                <div class="text-slate-300">绕口令</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">490</div>
+                <div class="text-slate-300">对联</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">499</div>
+                <div class="text-slate-300">歌词</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">465</div>
+                <div class="text-slate-300">知识卡片</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">326</div>
+                <div class="text-slate-300">句子</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">45</div>
+                <div class="text-slate-300">诗歌</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">19</div>
+                <div class="text-slate-300">中国传统节日</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">24</div>
+                <div class="text-slate-300">二十四节气</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">161</div>
+                <div class="text-slate-300">中国传统色</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">59</div>
+                <div class="text-slate-300">世界遗产名录</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 联系我们 -->
+      <section id="contact" class="mb-20">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">联系我们</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div class="bg-white p-8 rounded-2xl shadow-lg">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6">取得联系</h3>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
                 </div>
-
-                <div class="flex flex-1 justify-end items-center text-right md:pl-10">
-                                    </div>
+                <div>
+                  <div class="font-semibold text-slate-900">邮箱</div>
+                  <div class="text-gray-600"></div>
+                </div>
+              </div>
             </div>
-
-                    </header>
-
-        <main role="main" class="w-full flex-auto">
-            <section class="container max-w-6xl mx-auto px-6 py-10 md:py-12">
-    <div class="flex flex-col-reverse mb-10 lg:flex-row lg:mb-24">
-        <div class="mt-8">
-            <h1 id="intro-docs-template">京墨文库</h1>
-
-            <h2 id="intro-powered-by-jigsaw" class="font-light mt-4"></h2>
-
-            <p class="text-lg">Give your documentation a boost with Jigsaw. <br class="hidden sm:block">Generate elegant, static docs quickly and easily.</p>
-
-            <div class="flex my-10">
-                <a href="/docs/user-agreement" title="京墨文库 getting started" class="bg-blue-500 hover:bg-blue-600 font-normal text-white hover:text-white rounded mr-4 py-2 px-6">Get Started</a>
+          </div>
+          <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-2xl text-white">
+            <h3 class="text-2xl font-bold mb-6">关注我们</h3>
+            <div class="flex space-x-4">
+              <a class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" href="https://open.weixin.qq.com/qr/code?username=NowInLife" target="_blank">
+                <svg t="1747378871749" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3597" width="32" height="32"><path d="M499.80416 366.46912c-28.91264 0-60.40064-20.13696-60.91776-52.14208 0-32.00512 31.49312-52.14208 60.91776-52.14208 30.96576 0 52.13184 21.6832 52.13184 52.14208 0 30.976-21.67808 52.14208-52.13184 52.14208zM268.52352 366.46912c-29.42464 0-60.91264-20.13696-60.91264-52.14208s31.488-52.14208 60.91264-52.14208c30.45888 0 52.14208 21.6832 52.14208 52.14208 0 30.976-21.6832 52.14208-52.14208 52.14208z" p-id="3598"></path><path d="M888.01792 918.85568c-4.13184 0-8.7808-1.03936-12.3904-3.10272l-81.57184-44.90752c-32.00512 7.74656-63.488 14.97088-95.50848 14.97088-125.96224 0-238.49984-66.59584-284.96384-167.26016-1.54624 0.51712-3.0976 0.51712-4.12672 0.51712a355.87584 355.87584 0 0 1-33.03936 1.55648c-37.1712 0-67.11296-6.1952-101.70368-13.42464l-10.32704-2.05824-107.38176 53.6832c-3.6096 2.06336-7.74144 2.5856-11.87328 2.5856-6.19008 0-12.3904-2.05824-17.03424-6.1952-7.74144-6.71744-10.84416-18.06336-7.74144-27.87328l26.84416-81.57696C63.57504 582.26176 19.69152 501.72416 19.69152 412.928c0-169.32864 160.03584-307.16928 356.20864-307.16928 172.43136 0 325.75488 107.38176 358.28224 249.86624 152.81152 16 271.03232 130.09408 271.03232 263.80288 0 70.21056-39.75168 140.928-111.50848 199.78752l19.61984 65.56672c3.09248 10.33216-0.51712 21.1712-8.77056 27.8784-4.66432 4.13184-10.85952 6.1952-16.5376 6.1952zM797.1584 817.152c4.13696 0 8.7808 1.03424 12.3904 3.0976l35.10784 19.0976-6.71744-21.6832a26.3168 26.3168 0 0 1 9.28256-28.39552c68.15232-51.10272 105.31328-110.99136 105.31328-169.32352 0-115.64032-116.66944-213.72928-254.51008-213.72928-140.42112 0-255.0272 96.02048-255.0272 213.72928s114.60608 213.72416 255.0272 213.72416c30.45376 0 61.95712-7.75168 92.92288-15.48288 2.08384-0.52224 4.1472-1.03424 6.21056-1.03424zM375.90016 158.41792c-167.7824 0-304.58368 114.60608-304.58368 255.0272 0 77.95712 40.7808 145.5872 121.3184 201.856 9.28768 6.71232 13.41952 18.59072 9.80992 29.42464l-13.41952 39.7568 59.37152-29.94688c3.6096-1.54624 7.74144-2.5856 11.35616-2.5856 1.54624 0 3.6096 0 5.16096 0.52224l18.5856 3.6096c32.00512 6.72256 59.3664 12.40064 91.89376 12.40064 6.71232 0 13.94176 0 20.64896-0.53248-3.61472-16-5.16096-32.52224-5.16096-48.00512 0-140.42112 128.03072-256.57344 288.58368-265.34912-33.0496-112.54272-161.0752-196.17792-303.5648-196.17792z" p-id="3599"></path><path d="M607.17568 589.99808c-22.7072 0-43.87328-21.1712-43.87328-43.8784s21.1712-43.8784 43.87328-43.8784c32.01536 0 52.1472 22.72256 52.1472 43.8784-0.00512 26.84928-26.83904 43.8784-52.1472 43.8784zM788.89984 589.99808c-22.72256 0-43.86816-21.1712-43.86816-43.8784s21.16096-43.8784 43.86816-43.8784c32.53248 0 52.6592 22.72256 52.6592 43.8784-0.51712 21.1712-20.64896 43.8784-52.6592 43.8784z" p-id="3600"></path></svg>
+              </a>
             </div>
+          </div>
         </div>
+      </section>
+    </main>
 
-        <img src="/assets/img/logo-large.svg" alt="京墨文库 large logo" class="mx-auto mb-6 lg:mb-0 ">
-    </div>
-
-    <hr class="block my-8 border lg:hidden">
-
-    <div class="md:flex -mx-2 -mx-4">
-        <div class="mb-8 mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-window.svg" class="h-12 w-12" alt="window icon">
-
-            <h3 id="intro-laravel" class="text-2xl text-blue-900 mb-0">Templating with <br>Laravel's Blade engine</h3>
-
-            <p>Blade is a powerful, simple, and beautiful templating language, and now you can use it for your static sites, not just your Laravel-powered apps.</p>
+    <!-- 页脚 -->
+    <footer class="bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <img src="/public/logo.png" alt="京墨" class="w-10 h-10 rounded-lg" />
+            </div>
+          </div>
+          <div class="md:col-span-3 flex md:justify-end items-center">
+            <div class="flex flex-col md:flex-row md:items-center md:space-x-8 space-y-4 md:space-y-0">
+              <a href="./docs/user-agreement/"
+                 class="text-slate-300 hover:text-white transition-colors text-sm">
+                用户协议
+              </a>
+              <a href="./docs/privacy-policy/"
+                 class="text-slate-300 hover:text-white transition-colors text-sm">
+                隐私政策
+              </a>
+            </div>
+          </div>
         </div>
-
-        <div class="mb-8 mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-terminal.svg" class="h-12 w-12" alt="terminal icon">
-
-            <h3 id="intro-markdown" class="text-2xl text-blue-900 mb-0">Use Markdown for <br>content-driven pages</h3>
-
-            <p>Markdown is the web’s leading format for writing articles, blog posts, documentation, and more. Jigsaw makes it painless to work with Markdown content.</p>
+        <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
+          <p>&copy; <span id="current-year"></span> 京墨</p>
         </div>
+      </div>
+    </footer>
+  </div>
 
-        <div class="mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-stack.svg" class="h-12 w-12" alt="stack icon">
+  <!-- JavaScript -->
+  <script>
+    // 动态设置当前年份
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentYearElement = document.getElementById('current-year');
+      if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
 
-            <h3 id="intro-mix" class="text-2xl text-blue-900 mb-0">Compile your assets <br>using Laravel Mix </h3>
+  </body>
 
-            <p>Jigsaw comes pre-configured with Laravel Mix, a simple and powerful build tool. Use the latest frontend tech with just a few lines of code.</p>
-        </div>
-    </div>
-</section>
-        </main>
-
-        <script src="/assets/build/js/main.js?id=8c17223153a5fab5190c93898a00e66b"></script>
-
-        
-        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
-            <ul class="flex flex-col md:flex-row justify-center">
-                <li class="md:mr-2">
-                    &copy; <a href="./" title="京墨文库">京墨文库</a> 2025 <a href="./docs/user-agreement/" title="用户协议">用户协议</a>
-                </li>
-            </ul>
-        </footer>
-    </body>
 </html>
