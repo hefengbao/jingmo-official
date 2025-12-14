@@ -1,12 +1,32 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/public/logo.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>服务协议 - 京墨文库</title>
   <script src="/public/tailwindcss.js"></script>
+  <script>
+    // 初始化深色模式
+    (function() {
+      // 检查系统偏好或本地存储
+      const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedMode = localStorage.getItem('darkMode');
+
+      // 如果没有保存的偏好，使用系统偏好
+      if (savedMode === null) {
+        localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+      }
+
+      // 应用深色模式
+      if (savedMode === 'true' || (savedMode === null && isDarkMode)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
   <!-- 自定义样式 -->
   <style>
     /* 自定义样式 */
@@ -25,19 +45,19 @@
 
 <body>
   <!-- 主要内容区域 -->
-  <div class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
+  <div class="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
     <!-- 导航栏 -->
-    <header class="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+    <header class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b border-gray-200 dark:border-slate-700 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center space-x-3">
             <a href="/" class="flex items-center space-x-3">
-              <img src="/public/logo.png" alt="京墨" class="w-10 h-10 rounded-lg shadow-md" />
-              <span class="text-2xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">京墨</span>
+              <img src="/logo.png" alt="京墨" class="w-10 h-10 rounded-lg shadow-md" />
+              <span class="text-2xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 bg-clip-text text-transparent">京墨</span>
             </a>
           </div>
           <nav class="hidden md:flex space-x-10">
-            <a href="/" class="text-gray-600 hover:text-slate-800 transition-colors font-medium">返回首页</a>
+            <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-medium">返回首页</a>
           </nav>
         </div>
       </div>
@@ -47,24 +67,24 @@
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <!-- 页面标题 -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-slate-900 mb-4">服务协议</h1>
-        <p class="text-gray-600">
+        <h1 class="text-4xl font-bold text-slate-900 dark:text-slate-100 dark:text-slate-100 mb-4">服务协议</h1>
+        <p class="text-gray-600 dark:text-gray-400">
           <span class="font-semibold">最后更新：</span>2025-08-28 |
           <span class="font-semibold">生效日期：</span>2025-08-28
         </p>
       </div>
 
       <!-- 协议内容 -->
-      <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 md:p-12">
         <div class="prose prose-slate max-w-none">
-          <p class="text-lg text-gray-700 leading-relaxed mb-8">
+          <p class="text-lg text-gray-700 dark:text-gray-300 dark:text-gray-300 leading-relaxed mb-8">
             京墨文库 APP 是由贺丰宝（个人开发者）开发并运营的古诗文、词语、成语、句子等的阅读学习类 APP，为了更好的为你提供服务，请仔细阅读如下内容。
           </p>
 
           <!-- 一、协议确认与接受 -->
           <section class="mb-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">一、协议确认与接受</h2>
-            <div class="space-y-4 text-gray-700">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b border-slate-200 dark:border-slate-600">一、协议确认与接受</h2>
+            <div class="space-y-4 text-gray-700 dark:text-gray-300">
               <p>1. 用户在使用京墨文库 APP（以下简称"APP"）提供的服务前，请务必仔细阅读并理解本协议的全部条款。</p>
               <p>2. 用户确认使用 APP 服务，即视为已充分阅读、理解并同意接受本协议约束。</p>
             </div>
@@ -72,8 +92,8 @@
 
           <!-- 二、服务内容 -->
           <section class="mb-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">二、服务内容</h2>
-            <div class="space-y-4 text-gray-700">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b border-slate-200 dark:border-slate-600">二、服务内容</h2>
+            <div class="space-y-4 text-gray-700 dark:text-gray-300">
               <h3 class="font-semibold text-lg">1. 服务范围</h3>
               <p class="ml-6">APP 向用户提供包括但不限于：</p>
               <ul class="ml-10 list-disc space-y-2">
@@ -87,8 +107,8 @@
 
           <!-- 三、用户权利义务 -->
           <section class="mb-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">三、用户权利义务</h2>
-            <div class="space-y-4 text-gray-700">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b border-slate-200 dark:border-slate-600">三、用户权利义务</h2>
+            <div class="space-y-4 text-gray-700 dark:text-gray-300">
               <h3 class="font-semibold text-lg">1. 账号管理</h3>
               <p class="ml-6">现阶段没有用户账号管理功能。</p>
 
@@ -103,8 +123,8 @@
 
           <!-- 四、知识产权保护 -->
           <section class="mb-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">四、知识产权保护</h2>
-            <div class="space-y-4 text-gray-700">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b border-slate-200 dark:border-slate-600">四、知识产权保护</h2>
+            <div class="space-y-4 text-gray-700 dark:text-gray-300">
               <h3 class="font-semibold text-lg">1. 平台内容版权</h3>
               <p class="ml-6">
                 APP 提供的诗词、成语、歌词等内容，其著作权归原作者或合法授权方所有，用户仅限个人学习、欣赏使用，禁止用于商业目的。
@@ -117,8 +137,8 @@
 
           <!-- 五、免责声明 -->
           <section class="mb-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">五、免责声明</h2>
-            <div class="space-y-4 text-gray-700">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b border-slate-200 dark:border-slate-600">五、免责声明</h2>
+            <div class="space-y-4 text-gray-700 dark:text-gray-300">
               <p>1. 用户因使用 APP 内容产生的文学创作、考试学习等行为后果需自行承担。</p>
               <p>2. APP 不对以下情况承担责任：</p>
               <ul class="ml-6 list-disc space-y-2">
@@ -130,24 +150,24 @@
 
           <!-- 六、隐私政策 -->
           <section class="mb-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">六、隐私政策</h2>
-            <p class="text-gray-700">
-              用户个人信息保护规则详见<a href="../privacy-policy/" class="text-blue-600 hover:text-blue-800 underline">《隐私政策》</a>，本协议未明示事项以隐私政策为准。
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b border-slate-200 dark:border-slate-600">六、隐私政策</h2>
+            <p class="text-gray-700 dark:text-gray-300">
+              用户个人信息保护规则详见<a href="../privacy-policy/" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">《隐私政策》</a>，本协议未明示事项以隐私政策为准。
             </p>
           </section>
 
           <!-- 七、协议修改与终止 -->
           <section class="mb-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">七、协议修改与终止</h2>
-            <div class="space-y-4 text-gray-700">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b border-slate-200 dark:border-slate-600">七、协议修改与终止</h2>
+            <div class="space-y-4 text-gray-700 dark:text-gray-300">
               <p>1. APP 有权修订本协议条款，修订后将通过公告、站内信等方式通知用户，用户继续使用服务即视为接受新条款。</p>
             </div>
           </section>
 
           <!-- 八、法律适用与争议解决 -->
           <section class="mb-10">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">八、法律适用与争议解决</h2>
-            <div class="space-y-4 text-gray-700">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b border-slate-200 dark:border-slate-600">八、法律适用与争议解决</h2>
+            <div class="space-y-4 text-gray-700 dark:text-gray-300">
               <p>1. 本协议适用中华人民共和国法律。</p>
               <p>2. 因本协议产生的争议，双方应协商解决；协商不成，任何一方可向京墨运营公司所在地有管辖权的人民法院提起诉讼。</p>
             </div>

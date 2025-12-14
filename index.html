@@ -1,29 +1,73 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/public/logo.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>京墨 - 开源的中华文化阅读APP</title>
-  <script src="/public/tailwindcss.js"></script>
+  <script src="/tailwindcss.js"></script>
+  <script>
+    // 初始化深色模式
+    (function() {
+      // 检查系统偏好或本地存储
+      const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedMode = localStorage.getItem('darkMode');
+
+      // 如果没有保存的偏好，使用系统偏好
+      if (savedMode === null) {
+        localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+      }
+
+      // 应用深色模式
+      if (savedMode === 'true' || (savedMode === null && isDarkMode)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+  <style>
+    /* 深色模式 CSS 变量 */
+    :root {
+      --bg-primary: 255 255 255;
+      --bg-secondary: 248 250 252;
+      --bg-tertiary: 241 245 249;
+      --text-primary: 15 23 42;
+      --text-secondary: 100 116 139;
+      --text-tertiary: 148 163 184;
+      --border-primary: 226 232 240;
+      --accent: 30 41 59;
+    }
+
+    .dark {
+      --bg-primary: 15 23 42;
+      --bg-secondary: 30 41 59;
+      --bg-tertiary: 51 65 85;
+      --text-primary: 248 250 252;
+      --text-secondary: 203 213 225;
+      --text-tertiary: 148 163 184;
+      --border-primary: 51 65 85;
+      --accent: 148 163 184;
+    }
+  </style>
 </head>
 
 <body>
   <!-- 主要内容区域 -->
-  <div class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
+  <div class="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
     <!-- 导航栏 -->
-    <header class="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+    <header class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b border-gray-200 dark:border-slate-700 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center space-x-3">
-            <img src="/public/logo.png" alt="京墨" class="w-10 h-10 rounded-lg shadow-md" />
-            <span class="text-2xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">京墨</span>
+            <img src="/logo.png" alt="京墨" class="w-10 h-10 rounded-lg shadow-md" />
+            <span class="text-2xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 bg-clip-text text-transparent">京墨</span>
           </div>
           <nav class="hidden md:flex space-x-10">
-            <a href="#features" class="text-gray-600 hover:text-slate-800 transition-colors font-medium">功能展示</a>
-            <a href="#data" class="text-gray-600 hover:text-slate-800 transition-colors font-medium">内容数据</a>
-            <a href="#contact" class="text-gray-600 hover:text-slate-800 transition-colors font-medium">联系我们</a>
+            <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-medium">功能展示</a>
+            <a href="#data" class="text-gray-600 dark:text-gray-300 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-medium">内容数据</a>
+            <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-medium">联系我们</a>
           </nav>
         </div>
       </div>
@@ -37,12 +81,12 @@
           <!-- 左侧文字内容 -->
           <div class="text-center lg:text-left">
             <div class="mb-8">
-              <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-4">
+              <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-slate-100 mb-4">
                 <span class="block">京墨</span>
-                <span class="text-3xl sm:text-4xl lg:text-5xl text-slate-600 mt-2">开源的中华文化阅读APP</span>
+                <span class="text-3xl sm:text-4xl lg:text-5xl text-slate-600 dark:text-slate-400 mt-2">开源的中华文化阅读APP</span>
               </h1>
             </div>
-            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               献给喜欢中华文字、文学、文化的人。
             </p>
             <div class="flex justify-center lg:justify-start">
@@ -57,7 +101,7 @@
           <!-- 右侧产品图片 -->
           <div class="flex justify-center">
             <div class="w-3/4 rounded-2xl">
-              <img src="/public/app.png" alt="京墨应用展示" class="w-full h-full object-cover rounded-2xl" />
+              <img src="/app.png" alt="京墨应用展示" class="w-full h-full object-cover rounded-2xl" />
             </div>
           </div>
         </div>
@@ -66,14 +110,14 @@
       <!-- 功能展示 -->
       <section id="features" class="mb-20">
         <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold text-slate-900 mb-4">功能展示</h2>
+          <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">功能展示</h2>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- 功能图片 1 - 经典诗文 -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
             <div class="aspect-[9/16] relative overflow-hidden">
-              <img src="/public/feature-1.png" alt="经典诗文功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <img src="feature-1.png" alt="经典诗文功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
                 <h3 class="text-lg font-bold text-white mb-2">经典诗文</h3>
                 <p class="text-sm text-white/90">收录古今经典诗文作品</p>
@@ -82,9 +126,9 @@
           </div>
 
           <!-- 功能图片 2 - 诗文名句 -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
             <div class="aspect-[9/16] relative overflow-hidden">
-              <img src="/public/feature-2.png" alt="诗文名句功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <img src="feature-2.png" alt="诗文名句功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
                 <h3 class="text-lg font-bold text-white mb-2">诗文名句</h3>
                 <p class="text-sm text-white/90">精选优美诗词名句</p>
@@ -93,9 +137,9 @@
           </div>
 
           <!-- 功能图片 3 - 成语 -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
             <div class="aspect-[9/16] relative overflow-hidden">
-              <img src="/public/feature-3.png" alt="成语功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <img src="feature-3.png" alt="成语功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
                 <h3 class="text-lg font-bold text-white mb-2">成语</h3>
                 <p class="text-sm text-white/90">中华成语大词典</p>
@@ -104,9 +148,9 @@
           </div>
 
           <!-- 功能图片 4 - 句子 -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
             <div class="aspect-[9/16] relative overflow-hidden">
-              <img src="/public/feature-4.png" alt="句子功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <img src="feature-4.png" alt="句子功能" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
                 <h3 class="text-lg font-bold text-white mb-2">句子</h3>
                 <p class="text-sm text-white/90">优美句子精选集</p>
@@ -214,21 +258,21 @@
     <!-- 联系我们 -->
       <section id="contact" class="mb-20">
         <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold text-slate-900 mb-4">联系我们</h2>
+          <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">联系我们</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div class="bg-white p-8 rounded-2xl shadow-lg">
-            <h3 class="text-2xl font-bold text-slate-900 mb-6">取得联系</h3>
+          <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">取得联系</h3>
             <div class="space-y-4">
               <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
                 </div>
                 <div>
-                  <div class="font-semibold text-slate-900">邮箱</div>
-                  <div class="text-gray-600"></div>
+                  <div class="font-semibold text-slate-900 dark:text-slate-100">邮箱</div>
+                  <div class="text-gray-600 dark:text-gray-300"></div>
                 </div>
               </div>
             </div>
@@ -246,12 +290,12 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-slate-900 text-white">
+    <footer class="bg-slate-900 dark:bg-slate-950 text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid md:grid-cols-4 gap-8">
           <div>
             <div class="flex items-center space-x-3 mb-4">
-              <img src="/public/logo.png" alt="京墨" class="w-10 h-10 rounded-lg" />
+              <img src="/logo.png" alt="京墨" class="w-10 h-10 rounded-lg" />
             </div>
           </div>
           <div class="md:col-span-3 flex md:justify-end items-center">
@@ -267,7 +311,7 @@
             </div>
           </div>
         </div>
-        <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
+        <div class="border-t border-slate-700 dark:border-slate-800 mt-8 pt-8 text-center text-slate-400">
           <p>&copy; <span id="current-year"></span> 京墨</p>
         </div>
       </div>
