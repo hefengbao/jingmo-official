@@ -1,0 +1,62 @@
+---
+/** 404 页面 —— Astro 会将 src/pages/404.astro 输出为 /404.html */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="页面不存在" description="没有找到你要访问的页面">
+  <Header variant="doc" />
+
+  <main>
+    <section class="section notfound">
+      <div class="container">
+        <p class="kicker" style="justify-content:center">Error 404</p>
+        <h1 class="notfound__code grad-text">404</h1>
+        <h2 class="notfound__title">这一页没有找到</h2>
+        <p class="notfound__desc">
+          你要访问的页面可能已被移动或删除。可以回到首页继续浏览,或前往开源仓库反馈问题。
+        </p>
+        <div class="notfound__actions">
+          <a class="btn btn--primary" href="/">返回首页</a>
+          <a class="btn btn--ghost" href="/#features">看看功能</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .notfound {
+    text-align: center;
+    padding-block: clamp(72px, 12vw, 140px);
+  }
+
+  .notfound__code {
+    font-size: clamp(4.5rem, 16vw, 9rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin: 8px 0 20px;
+  }
+
+  .notfound__title {
+    font-size: clamp(1.4rem, 3.4vw, 2.1rem);
+    margin-bottom: 14px;
+  }
+
+  .notfound__desc {
+    color: var(--text-muted);
+    max-width: 42em;
+    margin: 0 auto 34px;
+  }
+
+  .notfound__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+</style>

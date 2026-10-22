@@ -1,0 +1,34 @@
+---
+/** 页脚 */
+import { footerLinks, links, site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <a class="brand" href="/" aria-label={`${site.name} 首页`}>
+        <img class="brand__logo" src="/logo.png" alt="" width="38" height="38" />
+        <span class="brand__name">
+          <span>{site.name}</span>
+          <small>{site.tagline}</small>
+        </span>
+      </a>
+
+      <nav class="site-footer__links" aria-label="页脚导航">
+        <a href={links.repository} target="_blank" rel="noopener noreferrer">开源仓库</a>
+        {
+          footerLinks.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))
+        }
+      </nav>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© <span data-current-year>{year}</span> {site.name} · 内容数据来自网络,欢迎纠错</p>
+      <p>基于 Astro 构建 · 开源项目</p>
+    </div>
+  </div>
+</footer>

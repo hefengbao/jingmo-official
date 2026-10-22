@@ -1,0 +1,68 @@
+---
+/**
+ * 文档页动态路由
+ * ------------------------------------------------------------
+ * src/content/docs/<slug>.md  →  /docs/<slug>/
+ *
+ * 文档清单来自 src/data/docs.ts 的静态 import 注册表,
+ * 页面本身不含任何法务文本 —— 内容以 Markdown 为唯一事实来源。
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { docs, type DocEntry } from '../../data/docs';
+
+export function getStaticPaths() {
+  return Object.entries(docs).map(([slug, entry]) => ({
+    params: { slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props as { entry: DocEntry };
+const { Content, frontmatter } = entry;
+const { title, description, lastUpdated, effectiveDate, lead } = frontmatter;
+
+const hasMeta = Boolean(lastUpdated || effectiveDate);
+---
+
+<BaseLayout title={title} description={description}>
+  <Header variant="doc" />
+
+  <main>
+    <section class="doc-hero">
+      <div class="container">
+        <h1 class="doc-hero__title">{title}</h1>
+        {
+          hasMeta && (
+            <div class="doc-hero__meta">
+              {lastUpdated && (
+                <span>
+                  <strong>最后更新:</strong>
+                  {lastUpdated}
+                </span>
+              )}
+              {effectiveDate && (
+                <span>
+                  <strong>生效日期:</strong>
+                  {effectiveDate}
+                </span>
+              )}
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <article class="card doc-body">
+          {lead && <p class="lead">{lead}</p>}
+          <Content />
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,207 @@
+---
+/** 首页落地页 */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import { features, links, site, stats } from '../data/site';
+
+const heroStats = [
+  { value: '955', label: '经典诗文' },
+  { value: '160万+', label: '诗文' },
+  { value: '49639', label: '成语' },
+];
+---
+
+<BaseLayout>
+  <Header variant="home" />
+
+  <main>
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <p class="hero__badge">
+            <span class="dot"></span>
+            开源 · 免费 · 无广告
+          </p>
+
+          <h1 class="hero__title">
+            <span class="line gold-text">{site.name}</span>
+            <span class="hero__subtitle">{site.tagline}</span>
+          </h1>
+
+          <p class="hero__desc">
+            献给喜欢中华文字、文学、文化的人。收录经典诗文、诗文名句、成语、汉字、词语、歇后语等
+            二十余类内容,把一座随身的中文文库放进你的手机。
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href={links.download} download={links.downloadFileName}>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              立即下载 APK
+            </a>
+            <a class="btn btn--ghost" href={links.repository} target="_blank" rel="noopener noreferrer">
+              查看开源仓库
+            </a>
+          </div>
+
+          <div class="hero__meta">
+            {
+              heroStats.map((item) => (
+                <div class="hero__meta-item">
+                  <span class="hero__meta-value grad-text">{item.value}</span>
+                  <span class="hero__meta-label">{item.label}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__device">
+            <img
+              src="/app.png"
+              alt="京墨文库应用界面展示"
+              width="1080"
+              height="1920"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 功能展示 ============ -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="kicker">Features</p>
+          <h2 class="section-title">功能展示</h2>
+          <p class="section-desc">
+            从诗文到成语,从名句到句子,四类核心阅读场景,一个应用全部覆盖。
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          {features.map((feature) => <FeatureCard feature={feature} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 内容数据 ============ -->
+    <section class="section" id="data">
+      <div class="container">
+        <div class="panel-dark stats-panel">
+          <div class="section-head section-head--center">
+            <p class="kicker">Data</p>
+            <h2 class="section-title">内容数据</h2>
+            <p class="section-desc">
+              二十余类中文内容,持续整理与校对,只为让每一次查阅都更快、更准。
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            {
+              stats.map((stat) => (
+                <div class="stat">
+                  <div class="stat__value">{stat.value}</div>
+                  <div class="stat__label">{stat.label}</div>
+                </div>
+              ))
+            }
+          </div>
+
+          <p class="stats-note">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 8h.01M11 12h1v4h1" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            数据来自网络,或有内容错误,欢迎纠错。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 联系我们 ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="kicker">Contact</p>
+          <h2 class="section-title">联系我们</h2>
+          <p class="section-desc">
+            京墨文库是开源项目,欢迎提交问题反馈、内容纠错或参与共建。
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-card reveal">
+            <h3 class="contact-card__title">取得联系</h3>
+
+            <div class="contact-row">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                  <path d="M4 7h16M4 7v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7M4 7l8 6 8-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <div>
+                <div class="contact-label">开源仓库</div>
+                <div class="contact-value">gitee.com/hefengbao/jingmo</div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                  <path d="M12 8v4l3 2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+              </span>
+              <div>
+                <div class="contact-label">问题反馈</div>
+                <div class="contact-value">在仓库提交 Issue</div>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn btn--ghost btn--sm" href={links.repository} target="_blank" rel="noopener noreferrer">
+                前往 Gitee
+              </a>
+              <a class="btn btn--ghost btn--sm" href={links.releases} target="_blank" rel="noopener noreferrer">
+                历史版本
+              </a>
+            </div>
+          </div>
+
+          <div class="card contact-card reveal">
+            <h3 class="contact-card__title">关注我们</h3>
+
+            <div class="contact-row">
+              <span class="contact-icon">
+                <svg viewBox="0 0 1024 1024" fill="currentColor" aria-hidden="true">
+                  <path d="M499.8 366.5c-28.9 0-60.4-20.1-60.9-52.1 0-32 31.5-52.1 60.9-52.1 31 0 52.1 21.7 52.1 52.1 0 31-21.7 52.1-52.1 52.1zm-231.3 0c-29.4 0-60.9-20.1-60.9-52.1s31.5-52.1 60.9-52.1c30.5 0 52.1 21.7 52.1 52.1 0 31-21.7 52.1-52.1 52.1z" />
+                  <path d="M888 918.9c-4.1 0-8.8-1-12.4-3.1l-81.6-44.9c-32 7.7-63.5 15-95.5 15-126 0-238.5-66.6-285-167.3-1.5.5-3.1.5-4.1.5a355.9 355.9 0 0 1-33 1.6c-37.2 0-67.1-6.2-101.7-13.4l-10.3-2.1-107.4 53.7c-3.6 2.1-7.7 2.6-11.9 2.6-6.2 0-12.4-2.1-17-6.2-7.7-6.7-10.8-18.1-7.7-27.9l26.8-81.6C63.6 582.3 19.7 501.7 19.7 412.9c0-169.3 160-307.2 356.2-307.2 172.4 0 325.8 107.4 358.3 249.9 152.8 16 271 130.1 271 263.8 0 70.2-39.8 140.9-111.5 199.8l19.6 65.6c3.1 10.3-.5 21.2-8.8 27.9-4.7 4.1-10.9 6.2-16.5 6.2z" />
+                </svg>
+              </span>
+              <div>
+                <div class="contact-label">微信公众号</div>
+                <div class="contact-value">扫码关注获取更新</div>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn btn--primary btn--sm" href={links.wechat} target="_blank" rel="noopener noreferrer">
+                打开公众号二维码
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
