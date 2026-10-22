@@ -218,9 +218,26 @@ import Footer from '../components/Footer.astro';
 
 本项目在受限环境(工作区外不可写、`node_modules` 只读、无外网)下同样可以构建:
 
-- **Vite 缓存目录**已从默认的 `node_modules/.vite` 移到 `.astro/vite`
-  (见 `astro.config.mjs`),以适配只读的 `node_modules`。
-  若你的环境允许写 `node_modules`,无需改动,该配置同样正常工作。
+- **Vite 缓存目录必须用绝对路径**。默认值 `node_modules/.vite` 写不进只读的 `node_modules`;
+  而写 `cacheDir: '.astro/vite'` 这样的**相对**路径时,Astro 的 Vite 环境(尤其是内容同步用的
+  sync 环境)会把它重定位成 `node_modules/.astro/vite-sync`,在只读环境下报
+  `EPERM: operation not permitted, mkdir '...\node_modules\.astro\vite-sync\deps_temp_xxx'`。
+
+  所以 `astro.config.mjs` 用的是绝对路径:
+
+  ```js
+  cacheDir: fileURLToPath(new URL('./.astro/vite', import.meta.url))
+  ```
+
+  任何会让 Vite 优化器缓存失效的操作(改依赖、改锁文件、让 Astro 识别到不同的包管理器)
+  都会触发重新预打包,用绝对路径才不会失败。若你的环境允许写 `node_modules`,该配置同样正常工作。
+
+- **不要为「让 npm 闭嘴」而随意新增识别文件**。`.npmrc` 由 npm 与 pnpm 共读,把 pnpm 专有键
+  (`package-import-method`、`auto-install-peers`)写在那里会让 npm 报
+  `Unknown project config` 警告(npm 11 起直接报错);这些键应放进 `pnpm-workspace.yaml`。
+
+  但注意:`pnpm-workspace.yaml` 会让 Astro 把包管理器识别为 pnpm,从而**使 Vite 优化器缓存失效**
+  并强制重新预打包。这正是上面那个 `EPERM` 的触发条件 —— 两处配置需配套使用,缺一不可。
 
 - **有意未使用 Astro Content Collections**。在受限环境下,`astro sync` 会把 `node_modules`
   中的 CJS 依赖(先是 `yaml`,接着是 `picomatch`)当作 ESM 内联求值,抛出

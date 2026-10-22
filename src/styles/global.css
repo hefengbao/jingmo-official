@@ -652,8 +652,8 @@ main {
   width: min(100%, 360px);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-strong);
-  background: var(--bg-elev);
-  padding: 10px;
+  /* 不再用 --bg-elev 充当机身白边:亮色下纯白与米白页面底色反差过大显得突兀 */
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -665,7 +665,8 @@ main {
 .hero__device img {
   width: 100%;
   height: auto;
-  border-radius: calc(var(--radius-lg) - 8px);
+  /* 圆角由容器统一裁剪,避免图片与容器圆角叠出细边 */
+  border-radius: 0;
 }
 
 /* ---------------------------------------------------------------------------

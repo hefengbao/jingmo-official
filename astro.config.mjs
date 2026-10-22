@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'node:url';
 
 // 京墨文库官网 —— Astro 静态站点
 // 说明:本项目使用 Astro 内置的 CSS 支持(手写设计系统),
@@ -14,8 +15,9 @@ export default defineConfig({
     assets: 'assets',
   },
   vite: {
-    // 缓存目录默认位于 node_modules/.vite;移到 .astro 下以适配只读 node_modules 的环境
-    cacheDir: '.astro/vite',
+    // 缓存目录默认位于 node_modules/.vite,而只读 node_modules 的环境写不进去。
+    // 用绝对路径,避免被任何 Vite 环境(含内容同步用的 sync 环境)重定位回 node_modules。
+    cacheDir: fileURLToPath(new URL('./.astro/vite', import.meta.url)),
     build: {
       // 站点体量小,合并资源减少请求数
       cssCodeSplit: false,
