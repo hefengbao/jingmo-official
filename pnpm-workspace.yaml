@@ -1,0 +1,10 @@
+# pnpm 专有设置
+# ------------------------------------------------------------
+# 这些键 pnpm 认得,但 npm 不认。过去它们写在 .npmrc 里,导致每次 npm 命令
+# 都会打印 "Unknown project config" 警告(npm 11 起将直接报错)。
+# 因此统一放到 pnpm-workspace.yaml —— npm 不读此文件,警告消失。
+#
+# 注:package-import-method 与 auto-install-peers 都是 pnpm 的磁盘/依赖优化项,
+# 对 npm 没有任何意义。
+packageImportMethod: hardlink
+autoInstallPeers: true
